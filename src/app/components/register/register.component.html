@@ -1,0 +1,110 @@
+<!-- Register  -->
+<section class="register">
+  <div class="container">
+    <div class="form__account">
+      <div class="sidebar__user">
+        <h1 class="sidebar__user--heading">Xin chào, Bạn</h1>
+        <p class="sidebar__user--desc">Hãy bắt đầu với chúng tôi</p>
+        <div class="">
+          <a [routerLink]="['/login']"
+            ><button class="btn user__cta">ĐĂNG NHẬP</button></a
+          >
+        </div>
+      </div>
+      <div class="account__inner">
+        <h1 class="heading-title">ĐĂNG KÝ</h1>
+        <form action="" id="form_reg">
+          <div class="row-form__group">
+            <div class="form__group">
+              <label for="fullname">Họ tên</label>
+              <input
+                type="text"
+                name="fullname"
+                id="fullname"
+                value=""
+                placeholder="Fullname..."
+              />
+            </div>
+
+            <div class="form__group">
+              <label for="username">Tên đăng nhập</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value=""
+                placeholder="Username..."
+              />
+            </div>
+          </div>
+
+          <div class="row-form__group">
+            <div class="form__group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value=""
+                placeholder="Email..."
+              />
+            </div>
+
+            <div class="form__group">
+              <label for="phone">Số Điện thoại</label>
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                value=""
+                placeholder="Số điện thoại..."
+              />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="address">Địa chỉ</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              value=""
+              placeholder="Địa chỉ..."
+            />
+          </div>
+
+          <div class="row-form__group">
+            <div class="form__group">
+              <label for="password">Mật khẩu</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value=""
+                placeholder="Password"
+              />
+            </div>
+
+            <div class="form__group">
+              <label for="confirm_pass">Xác nhận mật khẩu</label>
+              <input
+                type="password"
+                name="confirm_pass"
+                id="confirm_pass"
+                value=""
+                placeholder="Password"
+              />
+            </div>
+          </div>
+          <input
+            type="submit"
+            name="btn-reg"
+            class="btn user__cta"
+            id="btn-login"
+            value="ĐĂNG KÝ"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
