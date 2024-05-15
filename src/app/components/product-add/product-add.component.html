@@ -1,0 +1,221 @@
+<div id="page-body" class="d-flex">
+  <div id="sidebar" class="bg-white">
+    <ul id="sidebar-menu">
+      <li class="nav-link active">
+        <a href="#">
+          <div class="nav-link-icon d-inline-flex">
+            <i class="far fa-folder"></i>
+          </div>
+          Danh mục
+        </a>
+        <i class="arrow fas fa-angle-right"></i>
+
+        <ul class="sub-menu">
+          <li>
+            <a [routerLink]="['/category-add']">Thêm mới</a>
+          </li>
+          <li>
+            <a [routerLink]="['/category-list']">Danh sách</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-link">
+        <a href="#">
+          <div class="nav-link-icon d-inline-flex">
+            <i class="far fa-folder"></i>
+          </div>
+          Sản phẩm
+        </a>
+        <i class="arrow fas fa-angle-down"></i>
+        <ul class="sub-menu">
+          <li>
+            <a [routerLink]="['/product-add']">Thêm mới</a>
+          </li>
+          <li>
+            <a [routerLink]="['/product-list']">Danh sách</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-link">
+        <a href="list-order.html">
+          <div class="nav-link-icon d-inline-flex">
+            <i class="far fa-folder"></i>
+          </div>
+          Bán hàng
+        </a>
+        <i class="arrow fas fa-angle-right"></i>
+        <ul class="sub-menu">
+          <li><a href="list-order.html">Đơn hàng</a></li>
+        </ul>
+      </li>
+      <li class="nav-link">
+        <a href="?view=list-user">
+          <div class="nav-link-icon d-inline-flex">
+            <i class="far fa-folder"></i>
+          </div>
+          Users
+        </a>
+        <i class="arrow fas fa-angle-right"></i>
+
+        <ul class="sub-menu">
+          <li><a href="?view=add-user">Thêm mới</a></li>
+          <li><a href="?view=list-user">Danh sách</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id="wp-content">
+    <div id="content" class="container-fluid">
+      <div class="card">
+        <div class="card-header font-weight-bold">Thêm sản phẩm</div>
+        <div class="card-body">
+          <form (ngSubmit)="onSubmit()" [formGroup]="productForm">
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="productName" class="font-weight-bold"
+                    >Tên sản phẩm</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="productName"
+                    id="productName"
+                    formControlName="name"
+                    [(ngModel)]="product.name"
+                  />
+                  <small
+                    *ngIf="
+                      !productForm.get('name')?.valid &&
+                      productForm.get('name')?.touched
+                    "
+                  ></small>
+                </div>
+                <div class="form-group">
+                  <label for="product_image" class="font-weight-bold"
+                    >URL Hình ảnh</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="product_image"
+                    id="product_image"
+                    formControlName="product_image"
+                    [(ngModel)]="product.product_image"
+                  />
+                  <small
+                    *ngIf="
+                      !productForm.get('product_image')?.valid &&
+                      productForm.get('product_image')?.touched
+                    "
+                  ></small>
+                </div>
+                <div class="form-group">
+                  <label for="categoryId" class="font-weight-bold"
+                    >Danh mục</label
+                  >
+                  <select
+                    class="form-control"
+                    id="categoryId"
+                    formControlName="categoryId"
+                    [(ngModel)]="product.categoryId"
+                  >
+                    <option>Chọn danh mục</option>
+                    <option
+                      *ngFor="let category of categories"
+                      [value]="category._id"
+                    >
+                      {{ category.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="price_new" class="font-weight-bold"
+                    >Giá mới</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="price_new"
+                    id="price_new"
+                    formControlName="price_new"
+                    [(ngModel)]="product.price_new"
+                  />
+                  <small
+                    *ngIf="
+                      !productForm.get('price_new')?.valid &&
+                      productForm.get('price_new')?.touched
+                    "
+                  ></small>
+                </div>
+                <div class="form-group">
+                  <label for="price_old" class="font-weight-bold">Giá cũ</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="price_old"
+                    id="price_old"
+                    formControlName="price_old"
+                    [(ngModel)]="product.price_old"
+                  />
+                  <small
+                    *ngIf="
+                      !productForm.get('price_old')?.valid &&
+                      productForm.get('price_old')?.touched
+                    "
+                  ></small>
+                </div>
+                <div class="form-group">
+                  <label for="quantity" class="font-weight-bold"
+                    >Số lượng</label
+                  >
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="quantity"
+                    id="quantity"
+                    formControlName="quantity"
+                    [(ngModel)]="product.quantity"
+                  />
+                  <small
+                    *ngIf="
+                      !productForm.get('quantity')?.valid &&
+                      productForm.get('quantity')?.touched
+                    "
+                  ></small>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group pt-2">
+              <label for="description" class="font-weight-bold"
+                >Chi tiết sản phẩm</label
+              >
+              <textarea
+                name="description"
+                class="form-control"
+                id="description"
+                cols="30"
+                rows="5"
+                formControlName="description"
+                [(ngModel)]="product.description"
+              ></textarea>
+              <small
+                *ngIf="
+                  !productForm.get('description')?.valid &&
+                  productForm.get('description')?.touched
+                "
+              ></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="save">
+              Thêm mới
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

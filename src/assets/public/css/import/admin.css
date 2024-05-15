@@ -155,3 +155,8 @@ ul#sidebar-menu * {
 .title-product {
   width: 225px;
 }
+
+.id_product{
+  width: 225px;
+  overflow: hidden;
+}

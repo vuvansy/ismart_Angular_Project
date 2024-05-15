@@ -22,15 +22,24 @@ import { CategoryAddComponent } from './components/category-add/category-add.com
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
+
 // Định nghĩa các roures trong dự án
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent }, //Đường dẫn
   { path: 'register', component: RegisterComponent },
+
   { path: 'category-add', component: CategoryAddComponent },
   { path: 'category-list', component: CategoryListComponent },
   { path: 'category-edit/:id', component: CategoryEditComponent },
-  { path: 'category-delete/:id', component: CategoryDeleteComponent },
+
+  { path: 'product-add', component: ProductAddComponent },
+  { path: 'product-list', component: ProductListComponent },
+  { path: 'product-edit/:id', component: ProductEditComponent },
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
@@ -41,12 +50,18 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+
     LoginComponent,
     RegisterComponent,
+
     CategoryListComponent,
     CategoryAddComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
+
+    ProductListComponent,
+    ProductAddComponent,
+    ProductEditComponent,
   ],
   imports: [
     //Nơi khai báo các tính năng (gói của Angular)

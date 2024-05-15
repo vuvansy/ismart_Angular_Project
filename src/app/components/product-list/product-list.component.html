@@ -70,57 +70,73 @@
         <div
           class="card-header font-weight-bold d-flex justify-content-between align-items-center"
         >
-          <h5 class="m-0">Danh mục sản phẩm</h5>
+          <h5 class="m-0">Danh sách sản phẩm</h5>
         </div>
         <div class="card-body">
           <table class="table table-striped table-checkall">
             <thead>
               <tr>
-                <th>
-                  <input type="checkbox" name="checkall" />
-                </th>
+                <!-- <th scope="col">
+                  <input name="checkall" type="checkbox" />
+                </th> -->
                 <th scope="col">STT</th>
-                <th scope="col">Mã loại</th>
-                <th scope="col">Hình ảnh</th>
-                <th scope="col">Tên loại</th>
+                <th scope="col">ID</th>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Giảm giá</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Loại hàng</th>
                 <th scope="col">Tác vụ</th>
               </tr>
             </thead>
             <tbody id="placeholder">
-              <tr *ngFor="let category of categories; let i = index">
-                <td>
+              <tr *ngFor="let product of products; let i = index">
+                <!-- <td>
                   <input type="checkbox" />
-                </td>
+                </td> -->
                 <td>{{ i + 1 }}</td>
-                <td>{{ category._id }}</td>
+                <td class="id_product">{{ product._id }}</td>
                 <td>
                   <img
-                    src="{{ category.image }}"
+                    [src]="product.product_image"
                     alt=""
                     class="thumb_category"
                   />
                 </td>
-                <td>{{ category.name }}</td>
+                <td class="title-product">
+                  <a href="#">{{ product.name }}</a>
+                </td>
+                <td>{{ product.price_new }}</td>
+                <td>{{ product.price_old }}</td>
+                <td>
+                  <span class="badge badge-success">{{
+                    product.quantity
+                  }}</span>
+                </td>
+                <td>{{ getCategoryName(product.categoryId) }}</td>
                 <td>
                   <a
-                    [routerLink]="['/category-edit/' + category._id]"
-                    class="btn btn-success btn-sm rounded-0 text-white mr-2"
+                    [routerLink]="['/product-edit/' + product._id]"
+                    class="btn btn-success btn-sm rounded-0 text-white"
                     type="button"
                     data-toggle="tooltip"
                     data-placement="top"
-                    title="Chỉnh sửa"
-                    ><i class="fa fa-edit"></i
-                  ></a>
+                    title="Edit"
+                  >
+                    <i class="fa fa-edit"></i>
+                  </a>
                   <a
                     href="javscript:void(0)"
-                    (click)="deleteCategory(category._id)"
+                    (click)="deleteProduct(product._id)"
                     class="btn btn-danger btn-sm rounded-0 text-white"
                     type="button"
                     data-toggle="tooltip"
                     data-placement="top"
-                    title="Xóa"
-                    ><i class="fa fa-trash"></i
-                  ></a>
+                    title="Delete"
+                  >
+                    <i class="fa fa-trash"></i>
+                  </a>
                 </td>
               </tr>
             </tbody>
