@@ -16,15 +16,18 @@ import { HomeComponent } from './components/home/home.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-
+//Category Admin
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
-
+//Product Admin
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+//Category-Product User
+import { Category_productComponent } from './components/category_product/category_product.component';
+import { Detail_productComponent } from './components/detail_product/detail_product.component';
 
 // Định nghĩa các roures trong dự án
 const routes: Routes = [
@@ -39,6 +42,10 @@ const routes: Routes = [
   { path: 'product-add', component: ProductAddComponent },
   { path: 'product-list', component: ProductListComponent },
   { path: 'product-edit/:id', component: ProductEditComponent },
+
+  // { path: 'category-product', component: Category_productComponent },
+  { path: 'category-product/:id', component: Category_productComponent },
+  { path: 'detail-product/:id', component: Detail_productComponent },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
@@ -62,6 +69,9 @@ const routes: Routes = [
     ProductListComponent,
     ProductAddComponent,
     ProductEditComponent,
+
+    Category_productComponent,
+    Detail_productComponent,
   ],
   imports: [
     //Nơi khai báo các tính năng (gói của Angular)

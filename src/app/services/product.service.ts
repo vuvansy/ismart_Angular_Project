@@ -17,6 +17,10 @@ export class ProductService {
     return this.httpClient.get(`${this.url}/products/${id}`);
   }
 
+  getProductByCategoryId(categoryId: string) {
+    return this.httpClient.get(`${this.url}/products/categories/${categoryId}`);
+  }
+
   delete(id: string) {
     return this.httpClient.delete(`${this.url}/products/delete/${id}`);
   }
