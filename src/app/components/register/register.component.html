@@ -13,7 +13,7 @@
       </div>
       <div class="account__inner">
         <h1 class="heading-title">ĐĂNG KÝ</h1>
-        <form action="" id="form_reg">
+        <form id="form_reg" (ngSubmit)="onSubmit()" [formGroup]="userForm">
           <div class="row-form__group">
             <div class="form__group">
               <label for="fullname">Họ tên</label>
@@ -21,9 +21,16 @@
                 type="text"
                 name="fullname"
                 id="fullname"
-                value=""
                 placeholder="Fullname..."
+                formControlName="fullname"
+                [(ngModel)]="user.fullname"
               />
+              <small
+                *ngIf="
+                  !userForm.get('fullname')?.valid &&
+                  userForm.get('fullname')?.touched
+                "
+              ></small>
             </div>
 
             <div class="form__group">
@@ -32,21 +39,24 @@
                 type="text"
                 name="username"
                 id="username"
-                value=""
                 placeholder="Username..."
+                autocomplete="username"
+                formControlName="username"
+                [(ngModel)]="user.username"
               />
             </div>
           </div>
 
           <div class="row-form__group">
             <div class="form__group">
-              <label for="email">Email</label>
+              <label for="email1">Email</label>
               <input
-                type="text"
+                type="email"
                 name="email"
-                id="email"
-                value=""
+                id="email1"
                 placeholder="Email..."
+                formControlName="email"
+                [(ngModel)]="user.email"
               />
             </div>
 
@@ -56,8 +66,9 @@
                 type="text"
                 name="phone"
                 id="phone"
-                value=""
                 placeholder="Số điện thoại..."
+                formControlName="phone"
+                [(ngModel)]="user.phone"
               />
             </div>
           </div>
@@ -68,8 +79,9 @@
               type="text"
               name="address"
               id="address"
-              value=""
               placeholder="Địa chỉ..."
+              formControlName="address"
+              [(ngModel)]="user.address"
             />
           </div>
 
@@ -80,8 +92,10 @@
                 type="password"
                 name="password"
                 id="password"
-                value=""
                 placeholder="Password"
+                autocomplete="current-password"
+                formControlName="password"
+                [(ngModel)]="user.password"
               />
             </div>
 
@@ -93,6 +107,7 @@
                 id="confirm_pass"
                 value=""
                 placeholder="Password"
+                formControlName="confirm_pass"
               />
             </div>
           </div>

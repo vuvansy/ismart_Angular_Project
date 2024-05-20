@@ -56,7 +56,7 @@
 }
 #advisory-wp:before{
     position: absolute;
-    content: '\f2a0';
+    content: '\f007';
     font-family: 'FontAwesome';
     top: 50%;
     left: 0px;

@@ -18,9 +18,9 @@
           <li>
             <a href="detail_blog.html" title="">Giới thiệu</a>
           </li>
-          <li>
+          <!-- <li>
             <a [routerLink]="['login']">Đăng nhập</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -41,10 +41,11 @@
           <button type="submit" id="sm-s">Tìm kiếm</button>
         </form>
       </div>
-      <div id="action-wp" class="fl-right">
+      <div id="action-wp" class="fl-right d-flex align-items-center">
         <div id="advisory-wp" class="fl-left">
-          <span class="title">Tư vấn</span>
-          <span class="phone">0987.654.321</span>
+          <a [routerLink]="['login']" class="text-white font-weight-bold"
+            >Đăng nhập</a
+          >
         </div>
         <div id="btn-respon" class="fl-right">
           <i class="fa fa-bars" aria-hidden="true"></i>

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
-
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   url = 'http://localhost:3000';
@@ -22,8 +22,8 @@ export class UserService {
     return this.httpClient.delete(`${this.url}/users/delete/${id}`);
   }
 
-  save(user: User) {
-    return this.httpClient.post(`${this.url}/users/registe`, user);
+  save(user: User): Observable<any> {
+    return this.httpClient.post(`${this.url}/users/register`, user);
   }
 
   update(id: string, user: User) {
@@ -35,5 +35,6 @@ export class UserService {
     return this.httpClient.post(`${this.url}/users/login`, body);
   }
 
-
+  //Observables trong HttpClient: Khi sử dụng HttpClient trong Angular để
+  //gửi các HTTP requests, các phản hồi được trả về dưới dạng Observable.
 }

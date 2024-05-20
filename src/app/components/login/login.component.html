@@ -3,15 +3,17 @@
     <div class="form__account">
       <div class="account__inner">
         <h1 class="heading-title">ĐĂNG NHẬP</h1>
-        <form action="" id="form_login">
+        <form id="form_login" (ngSubmit)="onSubmit()" [formGroup]="userForm">
           <div class="form__group">
             <label for="username">Tên đăng nhập</label>
             <input
               type="text"
               name="username"
               id="username"
-              value=""
               placeholder="Tên đăng nhập..."
+              autocomplete="username"
+              formControlName="username"
+              [(ngModel)]="user.username"
             />
           </div>
           <div class="form__group">
@@ -20,8 +22,10 @@
               type="password"
               name="password"
               id="password"
-              value=""
               placeholder="Password"
+              autocomplete="current-password"
+              formControlName="password"
+              [(ngModel)]="user.password"
             />
           </div>
           <div class="form__group">
