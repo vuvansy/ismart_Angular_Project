@@ -1,20 +1,26 @@
-<!-- Register  -->
-<section class="register">
+<section class="updateAccount">
   <div class="container">
     <div class="form__account">
-      <div class="sidebar__user">
-        <h1 class="sidebar__user--heading">Xin chào, Bạn</h1>
-        <p class="sidebar__user--desc">Hãy bắt đầu với chúng tôi</p>
-        <div class="">
-          <a [routerLink]="['/login']"
-            ><button class="btn user__cta">ĐĂNG NHẬP</button></a
-          >
-        </div>
-      </div>
       <div class="account__inner">
-        <h1 class="heading-title">ĐĂNG KÝ</h1>
+        <div class="account__inner--title">
+          <h1 class="heading-title">CẬP NHẬT THÔNG TIN</h1>
+        </div>
         <form id="form_reg" (ngSubmit)="onSubmit()" [formGroup]="userForm">
           <div class="row-form__group">
+            <div class="form__group">
+              <label for="username">Tên đăng nhập</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                readonly
+                placeholder="Username..."
+                autocomplete="username"
+                formControlName="username"
+                [(ngModel)]="user.username"
+              />
+            </div>
+
             <div class="form__group">
               <label for="fullname">Họ tên</label>
               <input
@@ -31,19 +37,6 @@
                   userForm.get('fullname')?.touched
                 "
               ></small>
-            </div>
-
-            <div class="form__group">
-              <label for="username">Tên đăng nhập</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username..."
-                autocomplete="username"
-                formControlName="username"
-                [(ngModel)]="user.username"
-              />
             </div>
           </div>
 
@@ -117,9 +110,25 @@
             name="btn-reg"
             class="btn user__cta"
             id="btn-login"
-            value="ĐĂNG KÝ"
+            value="CẬP NHẬT"
           />
         </form>
+      </div>
+      <div class="sidebar__user">
+        <div class="avatar__user">
+          <img
+            *ngIf="isValid; else templateName"
+            src="public/images/user/user2.jpg"
+            alt=""
+          />
+          <ng-template #templateName>
+            <img
+              src="https://png.pngtree.com/png-vector/20190805/ourlarge/pngtree-account-avatar-user-abstract-circle-background-flat-color-icon-png-image_1650938.jpg"
+              alt=""
+            />
+          </ng-template>
+        </div>
+        <h2 class="subtitle__user"></h2>
       </div>
     </div>
   </div>

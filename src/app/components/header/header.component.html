@@ -12,15 +12,15 @@
           <li>
             <a [routerLink]="['category-product']">Sản phẩm</a>
           </li>
-          <li>
-            <a [routerLink]="['category-add']">Admin</a>
+          <li *ngIf="isADM">
+            <a [routerLink]="['category-list']">Admin</a>
           </li>
-          <li>
-            <a href="detail_blog.html" title="">Giới thiệu</a>
+          <li *ngIf="isLogin">
+            <a [routerLink]="['update-user']">Update Admin</a>
           </li>
-          <!-- <li>
-            <a [routerLink]="['login']">Đăng nhập</a>
-          </li> -->
+          <li *ngIf="isLogin">
+            <a (click)="onLogout()">Đăng Xuất</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -31,10 +31,11 @@
         ><img src="./assets/public/images/logo.png"
       /></a>
       <div id="search-wp" class="fl-left">
-        <form method="POST" action="" class="d-flex align-item-center">
+        <form (ngSubmit)="onSearch()" class="d-flex align-item-center">
           <input
             type="text"
-            name="s"
+            [(ngModel)]="searchTerm"
+            name="searchTerm"
             id="s"
             placeholder="Nhập từ khóa tìm kiếm tại đây!"
           />
@@ -43,9 +44,15 @@
       </div>
       <div id="action-wp" class="fl-right d-flex align-items-center">
         <div id="advisory-wp" class="fl-left">
-          <a [routerLink]="['login']" class="text-white font-weight-bold"
+          <a
+            *ngIf="!isLogin"
+            [routerLink]="['login']"
+            class="text-white font-weight-bold"
             >Đăng nhập</a
           >
+          <a *ngIf="isLogin" class="text-white font-weight-bold">{{
+            isLogin.fullname
+          }}</a>
         </div>
         <div id="btn-respon" class="fl-right">
           <i class="fa fa-bars" aria-hidden="true"></i>

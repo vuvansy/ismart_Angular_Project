@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
   url = 'http://localhost:3000';
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private auth: AuthService) {}
 
   getAll() {
-    return this.httpClient.get(`${this.url}/categories`);
+    //Gọi API với Bearer token
+    const headers = { Authorization: 'Bearer ' + this.auth.getToken() };
+    return this.httpClient.get(`${this.url}/categories`, { headers });
   }
 
   get(id: string) {

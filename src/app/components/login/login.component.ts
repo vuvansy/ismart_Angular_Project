@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
           alert(data.message);
         } else if (data.status === 200) {
           alert(data.message);
-          sessionStorage.setItem('user', JSON.stringify(data.data));
-          this.router.navigate(['/home']);
+          sessionStorage.setItem('user', JSON.stringify(data));
+          location.assign('/');
         }
       } else {
         alert(data.message);

@@ -6,4 +6,5 @@ export class User {
   password!: string;
   phone!: string;
   address!: string;
+  confirm_password!: string;
 }

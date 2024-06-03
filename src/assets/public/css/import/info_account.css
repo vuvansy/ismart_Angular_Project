@@ -28,6 +28,7 @@
 #form_login input[type="text"],
 #form_login input[type="password"] {
   width: 100%;
+  color: #000;
   box-sizing: border-box;
   height: 39px;
   margin: 4px 0;

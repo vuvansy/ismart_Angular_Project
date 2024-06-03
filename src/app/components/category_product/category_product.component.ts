@@ -24,7 +24,7 @@ export class Category_productComponent implements OnInit {
     private categoryService: CategoryService,
     private router: Router
   ) {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.paramMap.get('id') || '';
     console.log(`id is ${this.id}`);
   }
 

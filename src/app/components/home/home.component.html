@@ -186,20 +186,29 @@
       </div>
       <div class="section" id="list-product-wp">
         <div class="section-head">
-          <h3 class="section-title">Điện thoại</h3>
+          <h3 class="section-title">Sản Phẩm Tìm Kiếm</h3>
         </div>
         <div class="section-detail">
           <ul class="list-item clearfix">
-            <li>
-              <a href="detail_product" title="" class="thumb">
-                <img src="./assets/public/images/img-pro-16.png" />
+            <li *ngFor="let product of products">
+              <a
+                [routerLink]="['/detail-product/' + product._id]"
+                class="thumb"
+                title=""
+                class="thumb"
+              >
+                <img src="{{ product.product_image }}" />
               </a>
-              <a href="detail_product" title="" class="product-name"
-                >Motorola Moto G5S Plus</a
+              <a
+                [routerLink]="['/detail-product/' + product._id]"
+                class="thumb"
+                title=""
+                class="product-name"
+                >{{ product.name }}</a
               >
               <div class="price">
-                <span class="new">6.990.000đđ</span>
-                <span class="old">8.990.000đđ</span>
+                <span class="new">{{ product.price_new }}</span>
+                <span class="old">{{ product.price_old }}đ</span>
               </div>
               <div class="action clearfix">
                 <a href="cart" title="Thêm giỏ hàng" class="add-cart fl-left"
@@ -210,7 +219,7 @@
                 >
               </div>
             </li>
-            <li>
+            <!-- <li>
               <a href="detail_product" title="" class="thumb">
                 <img src="./assets/public/images/img-pro-15.png" />
               </a>
@@ -349,7 +358,7 @@
                   >Mua ngay</a
                 >
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
